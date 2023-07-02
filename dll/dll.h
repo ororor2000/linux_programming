@@ -23,6 +23,15 @@ typedef struct dll_
 #define DLL_T_STRUCT_SIZE sizeof(dll_t)
 #define DLL_NODE_T_STRUCT_SIZE sizeof(dll_node_t)
 
+#define ITERATE_DLL(dll_ptr, node_ptr)              \
+{                                                   \
+    dll_node_t* _node_ptr = NULL;                   \
+    node_ptr = dll_ptr->head;                       \
+    for(; node_ptr != NULL; node_ptr = _node_ptr) { \
+        _node_ptr = node_ptr->right;
+
+#define ITERATE_DLL_END }}
+
 /* function returning a pointer to a new double linked list */
 dll_t *create_new_dll(void);
 

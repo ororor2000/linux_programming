@@ -43,10 +43,10 @@ int main(int argc, char **argv) {
 
     node = dll->head;
 
-    while (node != NULL) {
+    ITERATE_DLL(dll, node)
         printf("item: %d\n", (node->data));
-        node = node->right;
-    }
+    ITERATE_DLL_END
+
     printf("\n\n\n");
 
     // delete_item(dll, dll->head->right->right->data);
