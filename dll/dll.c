@@ -4,7 +4,7 @@
 
 dll_t *create_new_dll(void) {
     dll_t *dll = calloc(0, DLL_T_STRUCT_SIZE);
-    dll->head = NULL;
+    dll->head = NULL;    
 
     return dll;
 }
@@ -52,4 +52,12 @@ int free_dll(dll_t *dll) {
     free(dll);
 
     return 0;
+}
+
+void register_match_key_cb(dll_t *dll, int (*key_match)(void*, void*)) {
+    dll->key_match = key_match;
+}
+
+void register_compare_key_cb(dll_t *dll, int (*compare_key)(void*, void*)) {
+    dll->compare_key = compare_key;
 }
